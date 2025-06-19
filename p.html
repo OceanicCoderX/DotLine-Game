@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dot Line Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Page 1: Welcome -->
+  <div id="page1" class="page">
+    <h1>🎮 Welcome to Dot Line Game</h1>
+    <button onclick="goToPage('page2')">Start Game</button>
+  </div>
+
+  <!-- Page 2: Rules -->
+  <div id="page2" class="page">
+    <h2>📜 Game Rules</h2>
+    <ol>
+      <li>2 to 5 Players</li>
+      <li>Each player selects a unique symbol/letter</li>
+      <li>Box with 10 to 50 lines of dots</li>
+      <li>One line per player per turn</li>
+      <li>Complete a box = earn another turn!</li>
+    </ol>
+    <button onclick="goToPage('page3')">Continue</button>
+  </div>
+
+  <!-- Page 3: Choose Players -->
+  <div id="page3" class="page">
+    <h2>👥 Choose Players</h2>
+    <div id="playersInput"></div>
+    <label>Number of Players:
+      <select id="numPlayers" onchange="renderPlayerInputs()">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </label>
+    <button onclick="goToPage('page4')">Next</button>
+  </div>
+
+  <!-- Page 4: Choose Lines of Dots -->
+  <div id="page4" class="page">
+    <h2>🟢 Choose Lines of Dots</h2>
+    <label>
+      Lines (10-50): 
+      <input type="number" id="numLines" min="10" max="50" value="10" />
+    </label>
+    <button onclick="goToPage('page5')">Next</button>
+  </div>
+
+  <!-- Page 5: Start Game -->
+  <div id="page5" class="page">
+    <h2>Ready to Start?</h2>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+
+  <!-- Game Interface -->
+  <div id="gamePage" class="page">
+    <h2>Dot Line Game</h2>
+    <div id="gameInfo"></div>
+    <canvas id="gameCanvas" width="600" height="600"></canvas>
+    <div id="gameStatus"></div>
+    <button onclick="goToPage('page1')">Restart</button>
+  </div>
+
+  <script src="Jgame.js"></script>
+</body>
+</html>
